@@ -1,0 +1,17 @@
+language: php
+
+matrix:
+  include:
+   
+    - php: 5.5.9
+      dist: precise
+
+befor_install:
+  - php /home/travis/.phpenv/versions/5.5.9/bin/composer.phar self-update
+ 
+    
+before_script:
+  - composer update --no-scripts  
+ 
+script: vendor/bin/phpunit  --configuration phpunit.xml --coverage-text
+   
